@@ -1,19 +1,18 @@
 import React from 'react';
-import Hero from './components/Hero';
-import Timeline from './components/Timeline';
-import TechTicker from './components/TechTicker';
-import ProjectShowcase from './components/ProjectShowcase';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Home from '@/pages/Home';
+import ProjectDetails from '@/pages/ProjectDetails';
+import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/utils/ScrollToTop';
 
 function App() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <main>
-        <Hero />
-        <TechTicker />
-        <Timeline />
-        <ProjectShowcase />
-      </main>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projetos/:slug" element={<ProjectDetails />} />
+      </Routes>
       <Footer />
     </div>
   );

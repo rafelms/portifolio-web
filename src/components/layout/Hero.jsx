@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Linkedin, Github, Mail } from 'lucide-react';
+import { ShaderBackground } from '../ui/hero-anim-1';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -20,10 +21,10 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 px-6 lg:px-12">
-      {/* Background Effect */}
+      {/* Animated Shader Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+        <ShaderBackground className="absolute inset-0" />
+        <div className="absolute inset-0 bg-background/40" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10 flex flex-col-reverse lg:flex-row items-center gap-12">
@@ -36,7 +37,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-primary font-medium tracking-wide uppercase mb-3">
-              Desenvolvedor Fullstack & Arquiteto de Sistemas
+              Desenvolvedor Fullstack
             </h2>
             <h1 className="text-5xl lg:text-7xl font-bold mb-4 leading-tight">
               Rafael Menezes <br className="hidden lg:block"/> de Santana
@@ -53,7 +54,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted max-w-2xl mx-auto lg:mx-0 text-lg leading-relaxed"
           >
-            Especialista em construir bases sólidas no Backend com Java e Spring Boot, além de orquestrar infraestrutura com Docker, CI/CD (GitHub Actions) e bancos de dados (PostgreSQL/MySQL). No Frontend, crio interfaces modernas e performáticas utilizando React.
+            Entusiasta em construir bases sólidas no Backend com Java e Spring Boot, além de orquestrar infraestrutura com Docker, CI/CD (GitHub Actions) e bancos de dados (PostgreSQL/MySQL). No Frontend, crio interfaces modernas e performáticas utilizando React.
           </motion.p>
 
           <motion.div 
@@ -80,7 +81,7 @@ const Hero = () => {
               <a href="https://github.com/rafelms" target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-white hover:bg-primary transition-colors">
                 <Github size={24} />
               </a>
-              <a href="mailto:menezesrafaelsantana@gmail.com" className="p-3 bg-surface rounded-full text-muted hover:text-white hover:bg-primary transition-colors" title="Gmail">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=menezesrafaelsantana@gmail.com&su=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%20Rafael,%0A%0AGostaria%20de%20conversar%20sobre..." target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-white hover:bg-primary transition-colors" title="Gmail">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                   <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
                 </svg>
