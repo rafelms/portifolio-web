@@ -40,7 +40,7 @@ const Hero = () => {
               Desenvolvedor Fullstack
             </h2>
             <h1 className="text-5xl lg:text-7xl font-bold mb-4 leading-tight">
-              Rafael Menezes <br className="hidden lg:block"/> de Santana
+              Rafael Santana <br className="hidden lg:block"/>
             </h1>
             <div className="h-8 text-xl lg:text-2xl text-muted font-light">
               <span>{text}</span>

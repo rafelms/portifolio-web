@@ -92,7 +92,8 @@ export const projects: Project[] = [
     problem: "O processo manual de validação de certificados para progressão de milhares de servidores da educação era moroso, propenso a erros e carecia de uma trilha de auditoria clara.",
     solution: "O sistema lida com alta carga e garante a integridade dos dados no PostgreSQL. Atualmente, desempenho um papel fundamental na manutenção ativa, refatoração arquitetural e escalabilidade contínua da aplicação. Atuo no estudo e implementação de novas funcionalidades, garantindo que o ciclo de vida do sistema se mantenha saudável, seguro e pronto para absorver novas demandas sem indisponibilidades.",
     gallery: [
-      "/assets/projects/certifica/Certifica1.png"
+      "/assets/projects/certifica/Certifica1.png",
+      "/assets/projects/certifica/certifica-front.png"
     ]
   },
   {
