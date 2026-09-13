@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BentoCard } from '../ui/bento';
-import { projects } from '@/data/projects';
+import { getProjects } from '@/data/projects';
+import { useI18n } from '../../lib/i18n-context';
 
 const ProjectShowcase = () => {
+  const { t, locale } = useI18n();
+  const projects = getProjects(locale);
+
   return (
     <section className="py-24 px-6 lg:px-12 bg-surface/30 border-t border-white/5 relative" id="projects">
       <div className="container mx-auto max-w-7xl">
@@ -15,9 +19,9 @@ const ProjectShowcase = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl lg:text-5xl font-bold mb-4">Projetos & Atuação</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold mb-4">{t.showcase.title}</h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Uma seleção de sistemas governamentais robustos e plataformas web institucionais de alto desempenho.
+            {t.showcase.subtitle}
           </p>
         </motion.div>
 
@@ -38,7 +42,7 @@ const ProjectShowcase = () => {
                   {projects[0].category}
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live
+                    {t.showcase.badges.live}
                   </span>
                 </span>
               }
@@ -135,7 +139,7 @@ const ProjectShowcase = () => {
                 <span className="flex items-center gap-2">
                   {projects[3].category}
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-wider">
-                    Em Breve
+                    {t.showcase.badges.comingSoon}
                   </span>
                 </span>
               }

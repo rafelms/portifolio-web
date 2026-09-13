@@ -2,10 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Linkedin, Github, Mail } from 'lucide-react';
 import { ShaderBackground } from '../ui/hero-anim-1';
+import { useI18n } from '../../lib/i18n-context';
 
 const Hero = () => {
+  const { t, locale } = useI18n();
   const [text, setText] = useState('');
-  const fullText = "Desenvolvendo soluções em Java, Spring, React...";
+  const fullText = t.hero.animatedText;
+  
+  useEffect(() => {
+    setText('');
+  }, [locale]);
+
   
   useEffect(() => {
     let i = 0;
@@ -17,7 +24,7 @@ const Hero = () => {
       }
     }, 100);
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 px-6 lg:px-12">
@@ -37,7 +44,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-primary font-medium tracking-wide uppercase mb-3">
-              Desenvolvedor Fullstack
+              {t.hero.role}
             </h2>
             <h1 className="text-5xl lg:text-7xl font-bold mb-4 leading-tight">
               Rafael Santana <br className="hidden lg:block"/>
@@ -54,7 +61,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted max-w-2xl mx-auto lg:mx-0 text-lg leading-relaxed"
           >
-            Entusiasta em construir bases sólidas no Backend com Java e Spring Boot, além de orquestrar infraestrutura com Docker, CI/CD (GitHub Actions) e bancos de dados (PostgreSQL/MySQL). No Frontend, crio interfaces modernas e performáticas utilizando React.
+            {t.hero.description}
           </motion.p>
 
           <motion.div 
@@ -64,13 +71,13 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start"
           >
             <a 
-              href="/assets/Currículo Profissional.pdf" 
+              href={locale === 'en' ? "/assets/resume-rafael-menezes-english.pdf" : "/assets/Currículo Profissional.pdf"} 
               download
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)]"
             >
               <div className="absolute inset-0 w-full h-full bg-primary-hover transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100" />
               <span className="relative z-10 flex items-center gap-2">
-                Baixar Currículo (CV) <Download size={20} />
+                {t.hero.downloadCv} <Download size={20} />
               </span>
             </a>
             

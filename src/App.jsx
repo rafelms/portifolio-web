@@ -4,11 +4,13 @@ import Home from '@/pages/Home';
 import ProjectDetails from '@/pages/ProjectDetails';
 import Footer from '@/components/layout/Footer';
 import ScrollToTop from '@/components/utils/ScrollToTop';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 function App() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <ScrollToTop />
+      <LanguageSwitcher />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projetos/:slug" element={<ProjectDetails />} />

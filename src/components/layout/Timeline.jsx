@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Server } from 'lucide-react';
+import { useI18n } from '../../lib/i18n-context';
 
 const timelineData = [
   {
@@ -30,13 +31,26 @@ const timelineData = [
 ];
 
 const Timeline = () => {
+  const { t } = useI18n();
+  const timelineData = t.timeline.items;
+
+  // We need to map the icons manually since they are not in the translation dict
+  const getIcon = (index) => {
+    switch(index) {
+      case 0: return <Server size={20} className="text-white" />;
+      case 1: return <GraduationCap size={20} className="text-white" />;
+      case 2: return <Briefcase size={20} className="text-white" />;
+      default: return <Briefcase size={20} className="text-white" />;
+    }
+  };
+
   return (
     <section className="py-24 px-6 lg:px-12 bg-background relative" id="timeline">
       <div className="container mx-auto max-w-4xl relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Evolução Profissional</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">{t.timeline.title}</h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            A jornada desde a gestão de bases de dados até o desenvolvimento Backend corporativo.
+            {t.timeline.subtitle}
           </p>
         </div>
 
@@ -52,7 +66,7 @@ const Timeline = () => {
             >
               {/* Timeline dot */}
               <div className="absolute -left-5 top-1 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(124,58,237,0.5)] border-4 border-background">
-                {item.icon}
+                {getIcon(index)}
               </div>
 
               <div className="glass p-6 md:p-8 rounded-2xl hover:border-primary/30 transition-colors group">

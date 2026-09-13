@@ -1,11 +1,14 @@
 import React from 'react';
 import { Linkedin, Github, Mail, Instagram } from 'lucide-react';
+import { useI18n } from '../../lib/i18n-context';
 
 const Footer = () => {
+  const { t } = useI18n();
+
   return (
     <footer className="py-12 border-t border-white/10 bg-background text-center">
       <div className="container mx-auto px-6">
-        <h2 className="text-2xl font-bold text-white mb-6">Precisa de alguma solução ou tem alguma ideia que queira tirar do papel? Vamos conversar!</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">{t.footer.title}</h2>
         
         <div className="flex items-center justify-center gap-6 mb-8">
           <a href="https://www.linkedin.com/in/rafael-menezes-de-santana-344802234/" target="_blank" rel="noreferrer" className="text-muted hover:text-primary transition-colors hover:-translate-y-1 transform duration-300">
@@ -29,7 +32,7 @@ const Footer = () => {
         </div>
         
         <p className="text-muted/60 text-sm">
-          &copy; {new Date().getFullYear()} Rafael Menezes de Santana, Desenvolvedor Fullstack.
+          &copy; {new Date().getFullYear()} {t.footer.copyright}
         </p>
       </div>
     </footer>
