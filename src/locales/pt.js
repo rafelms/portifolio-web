@@ -15,6 +15,14 @@ export const pt = {
     badges: {
       live: "Live",
       comingSoon: "Em Breve"
+    },
+    carousel: {
+      cta: "Ver projeto",
+      previous: "Projeto anterior",
+      next: "Próximo projeto",
+      pause: "Pausar rotação automática",
+      play: "Retomar rotação automática",
+      navigation: "Carrossel de projetos"
     }
   },
   timeline: {

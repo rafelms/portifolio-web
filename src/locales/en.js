@@ -15,6 +15,14 @@ export const en = {
     badges: {
       live: "Live",
       comingSoon: "Coming Soon"
+    },
+    carousel: {
+      cta: "View project",
+      previous: "Previous project",
+      next: "Next project",
+      pause: "Pause auto-rotation",
+      play: "Resume auto-rotation",
+      navigation: "Projects carousel"
     }
   },
   timeline: {
