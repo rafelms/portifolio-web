@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { FeatureCarousel } from '../ui/animated-feature-carousel';
 import { getProjects } from '@/data/projects';

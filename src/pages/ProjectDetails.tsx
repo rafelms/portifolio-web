@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink, X, Calendar } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatedTestimonials } from "@/components/blocks/animated-testimonials";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { getProjects } from "@/data/projects";
@@ -11,18 +11,33 @@ export default function ProjectDetails() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
   const projects = getProjects(locale);
-  
-  const project = projects.find(p => p.slug === slug);
-  const nextProject = projects.find(p => p.id === ((project?.id || 0) % projects.length) + 1);
+  const index = projects.findIndex(p => p.slug === slug);
+  const project = projects[index];
+  const nextProject = projects.length > 1 ? projects[(index + 1) % projects.length] : undefined;
+
+  // Fecha o modal com Esc e trava a rolagem da página enquanto ele estiver aberto
+  useEffect(() => {
+    if (!selectedImage) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selectedImage]);
 
   if (!project) {
     return <Navigate to="/" replace />;
   }
 
   return (
-    <div className="min-h-screen bg-background text-text pb-20">
+    <div className="min-h-screen bg-background text-text">
       {/* Navbar / Botão de Retorno */}
-      <nav className="container mx-auto px-4 sm:px-6 py-6 md:py-8">
+      <nav className="container mx-auto px-4 sm:px-6 py-6 md:py-8 pr-44">
         <Link to="/#projects" className="inline-flex items-center text-muted hover:text-primary-light transition-colors group text-sm md:text-base">
           <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover:-translate-x-1 transition-transform"/>
           {t.projectDetails.backToPortfolio}
@@ -89,14 +104,20 @@ export default function ProjectDetails() {
             const isLastAndOdd = project.gallery.length % 2 !== 0 && i === project.gallery.length - 1;
             
             return (
-              <img 
-                key={i} 
+              <button
+                key={img}
+                type="button"
                 onClick={() => setSelectedImage(img)}
-                src={img} 
-                className={`${isSingle || isLastAndOdd ? 'sm:col-span-2 h-auto max-h-[250px] sm:max-h-[500px]' : 'col-span-1 h-56 sm:h-64'} w-full object-cover rounded-xl border border-muted/15 cursor-pointer hover:opacity-80 transition-opacity`} 
-                alt={`Tela ${i + 1} - ${project.title}`} 
-                loading="lazy" 
-              />
+                aria-label={`${t.projectDetails.openImage}: ${t.projectDetails.screenshot} ${i + 1}`}
+                className={`${isSingle || isLastAndOdd ? 'sm:col-span-2' : 'col-span-1'} block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light`}
+              >
+                <img
+                  src={img}
+                  className={`${isSingle || isLastAndOdd ? 'h-auto max-h-[250px] sm:max-h-[500px]' : 'h-56 sm:h-64'} w-full object-cover rounded-xl border border-muted/15 hover:opacity-80 transition-opacity`}
+                  alt={`${t.projectDetails.screenshot} ${i + 1} - ${project.title}`}
+                  loading="lazy"
+                />
+              </button>
             );
           })}
         </div>
@@ -114,35 +135,38 @@ export default function ProjectDetails() {
         </div>
       )}
 
-      {/* Footer / Links */}
-      <footer className="container mx-auto px-4 sm:px-6 py-8 md:py-12 mt-8 md:mt-12 border-t border-muted/10 flex flex-col-reverse md:flex-row justify-between items-center gap-6 md:gap-0">
-        <p className="text-muted text-sm md:text-base text-center md:text-left">© 2026 Rafael Menezes. Todos os direitos reservados.</p>
-        {nextProject && (
-          <div className="flex gap-6">
-            <Link to={`/projetos/${nextProject.slug}`} className="text-primary-light hover:text-text font-medium text-sm md:text-base text-center">
-              {t.projectDetails.nextProject} {nextProject.title} &rarr;
-            </Link>
-          </div>
-        )}
-      </footer>
+      {/* Próximo projeto (o rodapé com copyright é o global, em App.jsx) */}
+      {nextProject && (
+        <nav className="container mx-auto px-4 sm:px-6 py-8 md:py-12 mt-8 md:mt-12 border-t border-muted/10 flex justify-center md:justify-end">
+          <Link to={`/projetos/${nextProject.slug}`} className="text-primary-light hover:text-text font-medium text-sm md:text-base text-center">
+            {t.projectDetails.nextProject} {nextProject.title} &rarr;
+          </Link>
+        </nav>
+      )}
 
       {/* Modal de Imagem */}
       {selectedImage && (
-        <div 
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={project.title}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 md:p-8 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
-          <button 
+          <button
+            type="button"
+            autoFocus
             onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 text-muted hover:text-text bg-surface/70 hover:bg-surface p-2 rounded-full backdrop-blur-md transition-all"
+            aria-label={t.projectDetails.closeImage}
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-muted hover:text-text bg-surface/70 hover:bg-surface p-2.5 rounded-full backdrop-blur-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light"
           >
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6" aria-hidden="true" />
           </button>
-          <img 
-            src={selectedImage} 
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl ring-1 ring-muted/15" 
-            alt="Imagem Expandida" 
-            onClick={(e) => e.stopPropagation()} 
+          <img
+            src={selectedImage}
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl ring-1 ring-muted/15"
+            alt={project.title}
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
       )}

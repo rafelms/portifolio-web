@@ -75,6 +75,9 @@ export const en = {
     problem: "The Problem",
     solution: "The Solution & Intent",
     nextProject: "Next Project:",
+    screenshot: "Screen",
+    openImage: "Enlarge image",
+    closeImage: "Close image",
     testimonials: {
       title: "Project Testimonials",
       subtitle: "See the impact and feedback from those who use this solution daily.",

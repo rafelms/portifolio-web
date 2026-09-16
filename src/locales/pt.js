@@ -75,6 +75,9 @@ export const pt = {
     problem: "O Problema",
     solution: "A Solução e Intuito",
     nextProject: "Próximo Projeto:",
+    screenshot: "Tela",
+    openImage: "Ampliar imagem",
+    closeImage: "Fechar imagem",
     testimonials: {
       title: "Avaliações do Projeto",
       subtitle: "Veja o impacto e o feedback de quem utiliza esta solução no dia a dia.",
