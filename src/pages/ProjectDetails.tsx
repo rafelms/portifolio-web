@@ -20,21 +20,21 @@ export default function ProjectDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white pb-20">
+    <div className="min-h-screen bg-background text-text pb-20">
       {/* Navbar / Botão de Retorno */}
       <nav className="container mx-auto px-4 sm:px-6 py-6 md:py-8">
-        <Link to="/#projects" className="inline-flex items-center text-gray-400 hover:text-purple-400 transition-colors group text-sm md:text-base">
+        <Link to="/#projects" className="inline-flex items-center text-muted hover:text-primary-light transition-colors group text-sm md:text-base">
           <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover:-translate-x-1 transition-transform"/>
           {t.projectDetails.backToPortfolio}
         </Link>
       </nav>
 
       {/* Hero do Projeto */}
-      <header className="container mx-auto px-4 sm:px-6 pt-6 pb-12 md:pt-10 md:pb-16 border-b border-white/5">
+      <header className="container mx-auto px-4 sm:px-6 pt-6 pb-12 md:pt-10 md:pb-16 border-b border-muted/10">
         <div className="flex flex-col-reverse sm:flex-row sm:justify-between sm:items-start gap-4 mb-4 md:mb-6">
           <div className="flex flex-wrap gap-2">
             {project.tags.map(tag => (
-              <span key={tag} className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-bold tracking-wider">
+              <span key={tag} className="px-3 py-1 bg-primary/15 text-primary-light rounded-full text-xs font-bold tracking-wider">
                 {tag}
               </span>
             ))}
@@ -54,18 +54,18 @@ export default function ProjectDetails() {
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4">{project.title}</h1>
         
         {project.period && (
-          <div className="flex items-center text-gray-400 mb-6 md:mb-8 text-sm md:text-base font-medium">
-            <Calendar className="w-4 h-4 md:w-5 md:h-5 mr-2 text-purple-400" />
+          <div className="flex items-center text-muted mb-6 md:mb-8 text-sm md:text-base font-medium">
+            <Calendar className="w-4 h-4 md:w-5 md:h-5 mr-2 text-primary-light" />
             <span>{t.projectDetails.period} {project.period}</span>
           </div>
         )}
 
-        <p className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed mb-6 md:mb-8">
+        <p className="text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-6 md:mb-8">
           {project.description}
         </p>
         
         {project.link && project.status === "live" && (
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors text-sm md:text-base">
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full sm:w-auto bg-primary hover:bg-primary-hover text-on-primary px-6 py-3 rounded-lg font-medium transition-colors text-sm md:text-base">
             {t.projectDetails.accessProject} <ExternalLink className="w-4 h-4 ml-2"/>
           </a>
         )}
@@ -73,13 +73,13 @@ export default function ProjectDetails() {
 
       {/* Galeria e Descrição */}
       <main className="container mx-auto px-4 sm:px-6 py-10 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-        <div className="space-y-6 md:space-y-8 text-gray-300 leading-relaxed text-base md:text-lg">
+        <div className="space-y-6 md:space-y-8 text-text leading-relaxed text-base md:text-lg">
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{t.projectDetails.problem}</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-text mb-3 md:mb-4">{t.projectDetails.problem}</h2>
             <p>{project.problem}</p>
           </div>
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{t.projectDetails.solution}</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-text mb-3 md:mb-4">{t.projectDetails.solution}</h2>
             <p>{project.solution}</p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function ProjectDetails() {
                 key={i} 
                 onClick={() => setSelectedImage(img)}
                 src={img} 
-                className={`${isSingle || isLastAndOdd ? 'sm:col-span-2 h-auto max-h-[250px] sm:max-h-[500px]' : 'col-span-1 h-56 sm:h-64'} w-full object-cover rounded-xl border border-white/10 cursor-pointer hover:opacity-80 transition-opacity`} 
+                className={`${isSingle || isLastAndOdd ? 'sm:col-span-2 h-auto max-h-[250px] sm:max-h-[500px]' : 'col-span-1 h-56 sm:h-64'} w-full object-cover rounded-xl border border-muted/15 cursor-pointer hover:opacity-80 transition-opacity`} 
                 alt={`Tela ${i + 1} - ${project.title}`} 
                 loading="lazy" 
               />
@@ -104,7 +104,7 @@ export default function ProjectDetails() {
 
       {/* Seção de Avaliação / Amostras */}
       {project.testimonials && project.testimonials.length > 0 && (
-        <div className="container mx-auto border-t border-white/5 pt-10">
+        <div className="container mx-auto border-t border-muted/10 pt-10">
           <AnimatedTestimonials 
             title={t.projectDetails.testimonials.title}
             subtitle={t.projectDetails.testimonials.subtitle}
@@ -115,11 +115,11 @@ export default function ProjectDetails() {
       )}
 
       {/* Footer / Links */}
-      <footer className="container mx-auto px-4 sm:px-6 py-8 md:py-12 mt-8 md:mt-12 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-6 md:gap-0">
-        <p className="text-gray-500 text-sm md:text-base text-center md:text-left">© 2026 Rafael Menezes. Todos os direitos reservados.</p>
+      <footer className="container mx-auto px-4 sm:px-6 py-8 md:py-12 mt-8 md:mt-12 border-t border-muted/10 flex flex-col-reverse md:flex-row justify-between items-center gap-6 md:gap-0">
+        <p className="text-muted text-sm md:text-base text-center md:text-left">© 2026 Rafael Menezes. Todos os direitos reservados.</p>
         {nextProject && (
           <div className="flex gap-6">
-            <Link to={`/projetos/${nextProject.slug}`} className="text-purple-400 hover:text-purple-300 font-medium text-sm md:text-base text-center">
+            <Link to={`/projetos/${nextProject.slug}`} className="text-primary-light hover:text-text font-medium text-sm md:text-base text-center">
               {t.projectDetails.nextProject} {nextProject.title} &rarr;
             </Link>
           </div>
@@ -129,18 +129,18 @@ export default function ProjectDetails() {
       {/* Modal de Imagem */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 md:p-8 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button 
             onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full backdrop-blur-md transition-all"
+            className="absolute top-6 right-6 text-muted hover:text-text bg-surface/70 hover:bg-surface p-2 rounded-full backdrop-blur-md transition-all"
           >
             <X className="w-6 h-6" />
           </button>
           <img 
             src={selectedImage} 
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl ring-1 ring-white/10" 
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl ring-1 ring-muted/15" 
             alt="Imagem Expandida" 
             onClick={(e) => e.stopPropagation()} 
           />

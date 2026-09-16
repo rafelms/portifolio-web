@@ -14,7 +14,7 @@ const technologies = [
 
 const TechTicker = () => {
   return (
-    <div className="w-full bg-surface border-y border-white/5 py-6 overflow-hidden flex whitespace-nowrap">
+    <div className="w-full bg-surface border-y border-muted/10 py-6 overflow-hidden flex whitespace-nowrap">
       <div className="animate-marquee flex items-center shrink-0 min-w-max justify-around">
         {technologies.map((tech, index) => (
           <div 

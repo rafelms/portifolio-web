@@ -43,7 +43,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-primary font-medium tracking-wide uppercase mb-3">
+            <h2 className="text-primary-light font-medium tracking-wide uppercase mb-3">
               {t.hero.role}
             </h2>
             <h1 className="text-5xl lg:text-7xl font-bold mb-4 leading-tight">
@@ -51,7 +51,7 @@ const Hero = () => {
             </h1>
             <div className="h-8 text-xl lg:text-2xl text-muted font-light">
               <span>{text}</span>
-              <span className="animate-pulse ml-1 text-primary">|</span>
+              <span className="animate-pulse ml-1 text-primary-light">|</span>
             </div>
           </motion.div>
 
@@ -73,7 +73,7 @@ const Hero = () => {
             <a 
               href={locale === 'en' ? "/assets/resume-rafael-menezes-english.pdf" : "/assets/Currículo Profissional.pdf"} 
               download
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(124,58,237,0.5)]"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-on-primary font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(31,111,235,0.5)]"
             >
               <div className="absolute inset-0 w-full h-full bg-primary-hover transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100" />
               <span className="relative z-10 flex items-center gap-2">
@@ -82,13 +82,13 @@ const Hero = () => {
             </a>
             
             <div className="flex items-center gap-4">
-              <a href="https://www.linkedin.com/in/rafael-menezes-de-santana-344802234/" target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-white hover:bg-primary transition-colors">
+              <a href="https://www.linkedin.com/in/rafael-menezes-de-santana-344802234/" target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-on-primary hover:bg-primary transition-colors">
                 <Linkedin size={24} />
               </a>
-              <a href="https://github.com/rafelms" target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-white hover:bg-primary transition-colors">
+              <a href="https://github.com/rafelms" target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-on-primary hover:bg-primary transition-colors">
                 <Github size={24} />
               </a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=menezesrafaelsantana@gmail.com&su=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%20Rafael,%0A%0AGostaria%20de%20conversar%20sobre..." target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-white hover:bg-primary transition-colors" title="Gmail">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=menezesrafaelsantana@gmail.com&su=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%20Rafael,%0A%0AGostaria%20de%20conversar%20sobre..." target="_blank" rel="noreferrer" className="p-3 bg-surface rounded-full text-muted hover:text-on-primary hover:bg-primary transition-colors" title="Gmail">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                   <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
                 </svg>
@@ -104,7 +104,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="flex-1 relative max-w-md w-full"
         >
-          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass p-2">
+          <div className="relative aspect-square rounded-3xl overflow-hidden border border-muted/15 glass p-2">
             <img 
               src="/assets/rafael-foto.jpeg" 
               alt="Rafael Menezes de Santana"

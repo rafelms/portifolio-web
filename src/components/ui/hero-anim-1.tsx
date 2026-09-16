@@ -272,17 +272,17 @@ void main() {
 }
 `
 
-// Paleta ajustada para o portfólio: Preto, Roxo escuro → Roxo primário (#7C3AED) → Roxo hover (#6D28D9) → tons escuros
+// Paleta azul do portfólio: #0B0E13 → azuis profundos → primário (#1F6FEB) → hover (#1858C4) → #1A2330
 const UNIFORMS = {
   colors: [
-    [0.04, 0.04, 0.04],      // #0A0A0A — background
-    [0.12, 0.02, 0.28],      // Roxo muito escuro / profundo
-    [0.35, 0.08, 0.55],      // Roxo médio escuro
-    [0.486, 0.227, 0.929],   // #7C3AED — primary
-    [0.427, 0.157, 0.851],   // #6D28D9 — primary-hover
-    [0.20, 0.05, 0.40],      // Roxo escuro de transição
-    [0.09, 0.09, 0.09],      // #171717 — surface
-    [0.04, 0.04, 0.04],      // #0A0A0A — background (fade out)
+    [0.043, 0.055, 0.075],   // #0B0E13 — background
+    [0.03, 0.08, 0.20],      // Azul muito escuro / profundo
+    [0.06, 0.22, 0.50],      // Azul médio escuro
+    [0.122, 0.435, 0.922],   // #1F6FEB — primary
+    [0.094, 0.345, 0.769],   // #1858C4 — primary-hover
+    [0.05, 0.14, 0.32],      // Azul escuro de transição
+    [0.102, 0.137, 0.188],   // #1A2330 — surface
+    [0.043, 0.055, 0.075],   // #0B0E13 — background (fade out)
   ] as [number, number, number][],
   colorCount: 7,
   scale: 1.500,

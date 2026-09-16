@@ -10,7 +10,7 @@ const timelineData = [
     company: "Governo do Estado do Tocantins",
     period: "Março 2026 - Presente",
     description: "Foco em regras de negócio, desenvolvimento de features, correção de bugs, gerenciamento de banco de dados, APIs Rest, JWT e documentação. Atuação nos sistemas Certifica e SIGPLANO.",
-    icon: <Server size={20} className="text-white" />
+    icon: <Server size={20} className="text-on-primary" />
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const timelineData = [
     company: "IFTO",
     period: "Setembro 2024 - Presente",
     description: "Aprofundamento acadêmico e técnico em desenvolvimento web, arquitetura e engenharia de software.",
-    icon: <GraduationCap size={20} className="text-white" />
+    icon: <GraduationCap size={20} className="text-on-primary" />
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const timelineData = [
     company: "C.E.M. Tiradentes",
     period: "Agosto 2023 - Fevereiro 2026",
     description: "Foco em gestão de bases de dados e análise, criando a base analítica de TI da instituição.",
-    icon: <Briefcase size={20} className="text-white" />
+    icon: <Briefcase size={20} className="text-on-primary" />
   }
 ];
 
@@ -37,10 +37,10 @@ const Timeline = () => {
   // We need to map the icons manually since they are not in the translation dict
   const getIcon = (index) => {
     switch(index) {
-      case 0: return <Server size={20} className="text-white" />;
-      case 1: return <GraduationCap size={20} className="text-white" />;
-      case 2: return <Briefcase size={20} className="text-white" />;
-      default: return <Briefcase size={20} className="text-white" />;
+      case 0: return <Server size={20} className="text-on-primary" />;
+      case 1: return <GraduationCap size={20} className="text-on-primary" />;
+      case 2: return <Briefcase size={20} className="text-on-primary" />;
+      default: return <Briefcase size={20} className="text-on-primary" />;
     }
   };
 
@@ -54,7 +54,7 @@ const Timeline = () => {
           </p>
         </div>
 
-        <div className="relative border-l border-white/10 ml-6 md:ml-12 space-y-12 pb-8">
+        <div className="relative border-l border-muted/15 ml-6 md:ml-12 space-y-12 pb-8">
           {timelineData.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -65,18 +65,18 @@ const Timeline = () => {
               className="relative pl-8 md:pl-12"
             >
               {/* Timeline dot */}
-              <div className="absolute -left-5 top-1 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(124,58,237,0.5)] border-4 border-background">
+              <div className="absolute -left-5 top-1 w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(31,111,235,0.5)] border-4 border-background">
                 {getIcon(index)}
               </div>
 
               <div className="glass p-6 md:p-8 rounded-2xl hover:border-primary/30 transition-colors group">
-                <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+                <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary-light text-sm font-semibold mb-4">
                   {item.period}
                 </span>
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold text-text mb-2 group-hover:text-primary-light transition-colors">
                   {item.title}
                 </h3>
-                <h4 className="text-lg text-white/70 mb-4 font-medium">
+                <h4 className="text-lg text-muted mb-4 font-medium">
                   {item.company}
                 </h4>
                 <p className="text-muted leading-relaxed">

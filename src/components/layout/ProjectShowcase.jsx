@@ -9,7 +9,7 @@ const ProjectShowcase = () => {
   const projects = getProjects(locale);
 
   return (
-    <section className="py-24 px-6 lg:px-12 bg-surface/30 border-t border-white/5 relative" id="projects">
+    <section className="py-24 px-6 lg:px-12 bg-surface/30 border-t border-muted/10 relative" id="projects">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div 

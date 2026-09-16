@@ -11,7 +11,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={toggleLocale}
-      className="fixed top-6 right-6 z-50 flex items-center justify-center w-12 h-12 bg-surface/80 backdrop-blur-md rounded-full border border-white/10 hover:border-primary/50 text-white font-bold transition-all duration-300 hover:scale-110 shadow-lg overflow-hidden"
+      className="fixed top-6 right-6 z-50 flex items-center justify-center w-12 h-12 bg-surface/80 backdrop-blur-md rounded-full border border-muted/15 hover:border-primary/50 text-text font-bold transition-all duration-300 hover:scale-110 shadow-lg overflow-hidden"
       aria-label="Toggle language"
       title={locale === 'pt' ? 'Switch to English' : 'Mudar para Português'}
     >
