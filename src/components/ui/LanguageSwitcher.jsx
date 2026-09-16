@@ -1,8 +1,8 @@
 import { useI18n } from '../../lib/i18n-context';
 
 const LANGUAGES = [
-  { code: 'en', label: 'EN', flag: '/assets/usa.svg', title: 'English' },
   { code: 'pt', label: 'BR', flag: '/assets/brazil.svg', title: 'Português' },
+  { code: 'en', label: 'EN', flag: '/assets/usa.svg', title: 'English' },
 ];
 
 export default function LanguageSwitcher() {
