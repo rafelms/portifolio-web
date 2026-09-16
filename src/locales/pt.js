@@ -15,25 +15,51 @@ export const pt = {
     badges: {
       live: "Live",
       comingSoon: "Em Breve"
+    },
+    carousel: {
+      cta: "Ver projeto",
+      previous: "Projeto anterior",
+      next: "Próximo projeto",
+      pause: "Pausar rotação automática",
+      play: "Retomar rotação automática",
+      navigation: "Carrossel de projetos"
     }
   },
   timeline: {
     title: "Evolução Profissional",
     subtitle: "A jornada desde a gestão de bases de dados até o desenvolvimento Backend corporativo.",
+    orbit: {
+      region: "Linha do tempo profissional",
+      current: "Atual",
+      completed: "Concluído",
+      previous: "Etapa anterior",
+      next: "Próxima etapa",
+      pause: "Pausar rotação da órbita",
+      play: "Retomar rotação da órbita"
+    },
     items: [
       {
+        id: "backend",
+        label: "Backend",
+        status: "current",
         title: "Desenvolvedor Backend",
         company: "Governo do Estado do Tocantins",
         period: "Março 2026 - Presente",
         description: "Foco em regras de negócio, desenvolvimento de features, correção de bugs, gerenciamento de banco de dados, APIs Rest, JWT e documentação. Atuação nos sistemas Certifica e SIGPLANO."
       },
       {
+        id: "ifto",
+        label: "IFTO",
+        status: "current",
         title: "Estudante de Sistemas para Internet",
         company: "IFTO",
         period: "Setembro 2024 - Presente",
         description: "Aprofundamento acadêmico e técnico em desenvolvimento web, arquitetura e engenharia de software."
       },
       {
+        id: "assistente",
+        label: "Administrativo",
+        status: "completed",
         title: "Assistente Administrativo",
         company: "C.E.M. Tiradentes",
         period: "Agosto 2023 - Fevereiro 2026",
@@ -49,6 +75,9 @@ export const pt = {
     problem: "O Problema",
     solution: "A Solução e Intuito",
     nextProject: "Próximo Projeto:",
+    screenshot: "Tela",
+    openImage: "Ampliar imagem",
+    closeImage: "Fechar imagem",
     testimonials: {
       title: "Avaliações do Projeto",
       subtitle: "Veja o impacto e o feedback de quem utiliza esta solução no dia a dia.",

@@ -7,12 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0A0A0A',
-        surface: '#171717',
-        primary: '#7C3AED', // Purple
-        'primary-hover': '#6D28D9',
-        text: '#FAFAFA',
-        muted: '#A3A3A3',
+        // Tema dark com destaques da paleta "Salt and Pepper": #FFFFFF · #D4D4D4 · #B3B3B3 · #2B2B2B
+        background: '#0F0F10', // Quase preto neutro
+        surface: '#2B2B2B', // Cartões e superfícies elevadas
+        silver: '#D4D4D4',
+        steel: '#B3B3B3',
+        primary: '#D4D4D4', // Prata — fundos de botões/badges. Texto escuro: 12.9:1
+        'primary-hover': '#FFFFFF', // Branco — hover de fundos
+        'primary-light': '#FFFFFF', // Destaque em texto/ícones sobre fundo escuro
+        'on-primary': '#0F0F10',
+        text: '#F5F5F5',
+        muted: '#B3B3B3', // Texto secundário (9.3:1 sobre o fundo)
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],

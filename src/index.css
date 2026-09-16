@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,14 +6,24 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-background text-text font-sans;
+  }
+
+  ::selection {
+    @apply bg-silver text-on-primary;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-surface/50 backdrop-blur-md border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+    @apply bg-surface/50 backdrop-blur-md border border-silver/10 shadow-[0_4px_30px_rgba(0,0,0,0.35)];
   }
 }

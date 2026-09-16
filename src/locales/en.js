@@ -15,25 +15,51 @@ export const en = {
     badges: {
       live: "Live",
       comingSoon: "Coming Soon"
+    },
+    carousel: {
+      cta: "View project",
+      previous: "Previous project",
+      next: "Next project",
+      pause: "Pause auto-rotation",
+      play: "Resume auto-rotation",
+      navigation: "Projects carousel"
     }
   },
   timeline: {
     title: "Professional Evolution",
     subtitle: "The journey from database management to corporate Backend development.",
+    orbit: {
+      region: "Professional timeline",
+      current: "Current",
+      completed: "Completed",
+      previous: "Previous step",
+      next: "Next step",
+      pause: "Pause orbit rotation",
+      play: "Resume orbit rotation"
+    },
     items: [
       {
+        id: "backend",
+        label: "Backend",
+        status: "current",
         title: "Backend Developer",
         company: "Government of the State of Tocantins",
         period: "March 2026 - Present",
         description: "Focus on business rules, feature development, bug fixing, database management, REST APIs, JWT, and documentation. Working on the Certifica and SIGPLANO systems."
       },
       {
+        id: "ifto",
+        label: "IFTO",
+        status: "current",
         title: "Internet Systems Student",
         company: "IFTO",
         period: "September 2024 - Present",
         description: "Academic and technical deepening in web development, software architecture, and engineering."
       },
       {
+        id: "assistente",
+        label: "Administrative",
+        status: "completed",
         title: "Administrative Assistant",
         company: "C.E.M. Tiradentes",
         period: "August 2023 - February 2026",
@@ -49,6 +75,9 @@ export const en = {
     problem: "The Problem",
     solution: "The Solution & Intent",
     nextProject: "Next Project:",
+    screenshot: "Screen",
+    openImage: "Enlarge image",
+    closeImage: "Close image",
     testimonials: {
       title: "Project Testimonials",
       subtitle: "See the impact and feedback from those who use this solution daily.",

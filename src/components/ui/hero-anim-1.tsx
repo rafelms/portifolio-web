@@ -272,17 +272,18 @@ void main() {
 }
 `
 
-// Paleta ajustada para o portfólio: Preto, Roxo escuro → Roxo primário (#7C3AED) → Roxo hover (#6D28D9) → tons escuros
+// Seda grafite com reflexos prateados ("Salt and Pepper" sobre fundo dark):
+// fundo → #2B2B2B → pratas (#B3B3B3 / #D4D4D4) → brilho branco → volta ao escuro.
 const UNIFORMS = {
   colors: [
-    [0.04, 0.04, 0.04],      // #0A0A0A — background
-    [0.12, 0.02, 0.28],      // Roxo muito escuro / profundo
-    [0.35, 0.08, 0.55],      // Roxo médio escuro
-    [0.486, 0.227, 0.929],   // #7C3AED — primary
-    [0.427, 0.157, 0.851],   // #6D28D9 — primary-hover
-    [0.20, 0.05, 0.40],      // Roxo escuro de transição
-    [0.09, 0.09, 0.09],      // #171717 — surface
-    [0.04, 0.04, 0.04],      // #0A0A0A — background (fade out)
+    [0.059, 0.059, 0.063],   // #0F0F10 — background
+    [0.169, 0.169, 0.169],   // #2B2B2B — grafite
+    [0.431, 0.431, 0.439],   // #6E6E70 — transição
+    [0.831, 0.831, 0.831],   // #D4D4D4 — prata (crista do reflexo)
+    [0.702, 0.702, 0.702],   // #B3B3B3 — aço
+    [0.227, 0.227, 0.231],   // #3A3A3B — sombra
+    [0.059, 0.059, 0.063],   // #0F0F10 — background (fade out)
+    [0.059, 0.059, 0.063],   // não usado (colorCount = 7)
   ] as [number, number, number][],
   colorCount: 7,
   scale: 1.500,
@@ -290,13 +291,13 @@ const UNIFORMS = {
   paramA: 0.500,
   warp: 0.000,
   detail: 2.400,
-  contrast: 1.005,
-  brightness: -0.030,
+  contrast: 1.000,
+  brightness: -0.060,
   saturation: 1.000,
   hue: 0.0000,
   vignette: 0.000,
-  blur: 0.0120,
-  grain: 0.042,
+  blur: 0.0000,
+  grain: 0.000,
   seed: 1.0,
   rotate: 0.0000,
   offsetX: 0.000,
@@ -307,8 +308,13 @@ const UNIFORMS = {
   cursorStrength: 0.650,
   cursorRadius: 0.460,
   oklab: 0.0,
-  timeScale: 0.309,
+  timeScale: 0.250,
 }
+
+// A seda é um gradiente suave: renderizar em baixa resolução e deixar o
+// navegador escalar é visualmente idêntico e muito mais barato.
+const MAX_RENDER_PIXELS = 400_000
+const FRAME_INTERVAL_MS = 1000 / 30
 
 const pendingContextReleases = new WeakMap<HTMLCanvasElement, number>()
 
@@ -322,7 +328,13 @@ export function ShaderBackground({ className }: { className?: string }) {
     const pendingRelease = pendingContextReleases.get(canvas)
     if (pendingRelease !== undefined) window.clearTimeout(pendingRelease)
     pendingContextReleases.delete(canvas)
-    const _gl = canvas.getContext("webgl", { antialias: false })
+    const _gl = canvas.getContext("webgl", {
+      antialias: false,
+      alpha: false,
+      depth: false,
+      stencil: false,
+      powerPreference: "low-power",
+    })
     if (!_gl) return
     const gl = _gl
 
@@ -416,15 +428,17 @@ export function ShaderBackground({ className }: { className?: string }) {
     let inView = true
     let disposed = false
     const start = performance.now()
-    const timeAnimated = Math.abs(UNIFORMS.timeScale) > 0.0001
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    const timeAnimated = !reduceMotion && Math.abs(UNIFORMS.timeScale) > 0.0001
+    let lastDraw: number | null = null
 
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const dpr = 1
       const rawWidth = Math.max(1, Math.round(bounds.width * dpr))
       const rawHeight = Math.max(1, Math.round(bounds.height * dpr))
       const pixelScale = Math.min(
         1,
-        Math.sqrt(2_000_000 / Math.max(1, rawWidth * rawHeight)),
+        Math.sqrt(MAX_RENDER_PIXELS / Math.max(1, rawWidth * rawHeight)),
       )
       const width = Math.max(1, Math.round(rawWidth * pixelScale))
       const height = Math.max(1, Math.round(rawHeight * pixelScale))
@@ -518,6 +532,11 @@ export function ShaderBackground({ className }: { className?: string }) {
     function render(now: number) {
       raf = 0
       if (disposed || !visible || !inView) return
+      if (lastDraw !== null && now - lastDraw < FRAME_INTERVAL_MS - 1) {
+        requestRender()
+        return
+      }
+      lastDraw = now
       const dt = lastNow === null ? 0 : Math.min((now - lastNow) / 1000, 0.1)
       lastNow = now
       const follow = 1 - Math.exp(-12 * dt)
