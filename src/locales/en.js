@@ -45,7 +45,7 @@ export const en = {
         title: "Backend Developer",
         company: "Government of the State of Tocantins",
         period: "March 2026 - Present",
-        description: "Focus on business rules, feature development, bug fixing, database management, REST APIs, JWT, and documentation. Working on the Certifica and SIGPLANO systems."
+        description: "Development and maintenance of government systems with Java, Spring Boot, React, and TypeScript. Automated testing (JUnit and Mockito) for stability and high code coverage. Implementation of complex business rules, RESTful API integration, and focus on data security and performance with Hibernate."
       },
       {
         id: "ifto",
@@ -63,7 +63,7 @@ export const en = {
         title: "Administrative Assistant",
         company: "C.E.M. Tiradentes",
         period: "August 2023 - February 2026",
-        description: "Focus on database management and analysis, creating the institution's IT analytical foundation."
+        description: "Management of academic databases and institutional administrative documentation. Student data analysis and advanced organizational support with Excel and productivity tools, along with developing interpersonal skills, workflow organization, and assertive communication."
       }
     ]
   },

@@ -43,16 +43,16 @@ export const pt = {
         label: "Backend",
         status: "current",
         title: "Desenvolvedor Backend",
-        company: "Governo do Estado do Tocantins",
+        company: "Gerência de Sistemas - SEDUC/Tocantins",
         period: "Março 2026 - Presente",
-        description: "Foco em regras de negócio, desenvolvimento de features, correção de bugs, gerenciamento de banco de dados, APIs Rest, JWT e documentação. Atuação nos sistemas Certifica e SIGPLANO."
+        description: "Desenvolvimento e manutenção de sistemas governamentais com Java, Spring Boot, React e TypeScript. Testes automatizados (JUnit e Mockito) para estabilidade e alta cobertura de código. Implementação de regras de negócio complexas, integração de APIs RESTful e foco em segurança de dados e performance com Hibernate."
       },
       {
         id: "ifto",
         label: "IFTO",
         status: "current",
         title: "Estudante de Sistemas para Internet",
-        company: "IFTO",
+        company: "Instituto Federal de Ciência e Tecnologia do Tocantins",
         period: "Setembro 2024 - Presente",
         description: "Aprofundamento acadêmico e técnico em desenvolvimento web, arquitetura e engenharia de software."
       },
@@ -61,9 +61,9 @@ export const pt = {
         label: "Administrativo",
         status: "completed",
         title: "Assistente Administrativo",
-        company: "C.E.M. Tiradentes",
+        company: "Centro de Ensino Médio Tiradentes",
         period: "Agosto 2023 - Fevereiro 2026",
-        description: "Foco em gestão de bases de dados e análise, criando a base analítica de TI da instituição."
+        description: "Gestão de bases de dados acadêmicas e documentação administrativa institucional. Análise de dados estudantis e suporte organizacional avançado com Excel e ferramentas de produtividade, além do desenvolvimento de competência interpessoal, organização de fluxos de trabalho e comunicação assertiva."
       }
     ]
   },
