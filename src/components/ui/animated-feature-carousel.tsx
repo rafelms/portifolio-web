@@ -166,7 +166,7 @@ function StageImage({ src, alt, className, imgClassName, delay = 0, fromX = 0 }:
 }
 
 function Spotlight({ x, y }: { x: MotionValue<number>; y: MotionValue<number> }) {
-  const background = useMotionTemplate`radial-gradient(520px circle at ${x}px ${y}px, rgba(31,111,235,0.14), transparent 70%)`
+  const background = useMotionTemplate`radial-gradient(520px circle at ${x}px ${y}px, rgba(212,212,212,0.08), transparent 70%)`
   return (
     <motion.div
       aria-hidden
@@ -320,7 +320,7 @@ export function FeatureCarousel({ items, labels, interval = 6000, className }: F
             "group relative block cursor-pointer touch-pan-y overflow-hidden rounded-3xl",
             "border border-muted/15 bg-surface/60 backdrop-blur-sm",
             "shadow-[0_0_40px_rgba(0,0,0,0.35)] transition-[border-color,box-shadow] duration-300",
-            "hover:border-primary/40 hover:shadow-[0_0_40px_rgba(31,111,235,0.15)]",
+            "hover:border-primary/40 hover:shadow-[0_0_40px_rgba(212,212,212,0.10)]",
             "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-light focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           )}
         >

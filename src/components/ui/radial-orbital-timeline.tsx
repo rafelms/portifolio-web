@@ -128,7 +128,7 @@ function OrbitNode({ item, index, total, rotation, radius, selected, onSelect, o
         <span
           aria-hidden
           className={cn(
-            "absolute left-1/2 top-6 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(31,111,235,0.35)_0%,transparent_70%)] transition-opacity duration-500",
+            "absolute left-1/2 top-6 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(212,212,212,0.30)_0%,transparent_70%)] transition-opacity duration-500",
             selected ? "opacity-100 motion-safe:animate-pulse" : "opacity-0 group-hover:opacity-60"
           )}
         />
@@ -137,7 +137,7 @@ function OrbitNode({ item, index, total, rotation, radius, selected, onSelect, o
             "relative flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all duration-300",
             "group-focus-visible:ring-2 group-focus-visible:ring-primary-light group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-background",
             selected
-              ? "scale-110 border-primary-light bg-primary text-on-primary shadow-[0_0_24px_rgba(31,111,235,0.55)]"
+              ? "scale-110 border-primary-light bg-primary text-on-primary shadow-[0_0_24px_rgba(212,212,212,0.40)]"
               : "border-muted/30 bg-surface text-muted group-hover:border-primary/60 group-hover:text-text"
           )}
         >
@@ -300,13 +300,13 @@ export default function RadialOrbitalTimeline({ items, labels, speed = 6, classN
           {/* Anéis */}
           <div aria-hidden className="absolute inset-[48px] rounded-full border border-muted/15" />
           <div aria-hidden className="absolute inset-[22%] rounded-full border border-dashed border-primary/20 motion-safe:animate-[spin_60s_linear_infinite]" />
-          <div aria-hidden className="absolute inset-[48px] rounded-full bg-[radial-gradient(circle,rgba(31,111,235,0.10)_0%,transparent_65%)]" />
+          <div aria-hidden className="absolute inset-[48px] rounded-full bg-[radial-gradient(circle,rgba(212,212,212,0.08)_0%,transparent_65%)]" />
 
           {/* Núcleo */}
           <div aria-hidden className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center">
             <span className="absolute h-20 w-20 rounded-full border border-primary-light/25 motion-safe:animate-ping [animation-duration:2.4s]" />
             <span className="absolute h-24 w-24 rounded-full border border-primary/15 motion-safe:animate-ping [animation-delay:0.8s] [animation-duration:2.4s]" />
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-light via-primary to-primary-hover shadow-[0_0_40px_rgba(31,111,235,0.45)]">
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary-light via-primary to-primary-hover shadow-[0_0_40px_rgba(212,212,212,0.35)]">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={item.id}

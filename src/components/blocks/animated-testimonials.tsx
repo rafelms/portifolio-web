@@ -112,7 +112,7 @@ export function AnimatedTestimonials({
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   style={{ zIndex: activeIndex === index ? 10 : 0 }}
                 >
-                  <div className="bg-surface/80 border border-muted/15 shadow-[0_0_20px_rgba(31,111,235,0.1)] backdrop-blur-sm rounded-xl p-6 md:p-8 h-full flex flex-col">
+                  <div className="bg-surface/80 border border-muted/15 shadow-[0_0_20px_rgba(212,212,212,0.06)] backdrop-blur-sm rounded-xl p-6 md:p-8 h-full flex flex-col">
                     <div className="mb-4 md:mb-6 flex gap-2">
                       {Array(testimonial.rating).fill(0).map((_, i) => (
                         <Star className="h-4 w-4 md:h-5 md:w-5 fill-primary-light text-primary-light" key={i}/>

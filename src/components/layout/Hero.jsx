@@ -31,7 +31,7 @@ const Hero = () => {
       {/* Animated Shader Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ShaderBackground className="absolute inset-0" />
-        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10 flex flex-col-reverse lg:flex-row items-center gap-12">
@@ -73,7 +73,7 @@ const Hero = () => {
             <a 
               href={locale === 'en' ? "/assets/resume-rafael-menezes-english.pdf" : "/assets/Currículo Profissional.pdf"} 
               download
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-on-primary font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(31,111,235,0.5)]"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-on-primary font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_24px_rgba(212,212,212,0.35)]"
             >
               <div className="absolute inset-0 w-full h-full bg-primary-hover transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100" />
               <span className="relative z-10 flex items-center gap-2">
