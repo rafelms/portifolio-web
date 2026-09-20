@@ -1,4 +1,3 @@
-import { Instagram } from 'lucide-react';
 import { SocialLinks } from '../ui/social-links';
 import { useI18n } from '../../lib/i18n-context';
 
@@ -14,10 +13,6 @@ const Footer = () => {
         
         <div className="flex items-center justify-center gap-6 mb-8">
           <SocialLinks className="contents" linkClassName={LINK_CLASS} />
-          {/* Instagram ainda sem perfil público: ícone apenas ilustrativo, sem link */}
-          <span className="p-2 text-muted/40 cursor-not-allowed" title="Instagram — em breve" aria-hidden="true">
-            <Instagram size={24} />
-          </span>
         </div>
         
         <p className="text-muted/80 text-sm">
@@ -29,3 +24,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

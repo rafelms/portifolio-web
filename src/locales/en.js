@@ -1,13 +1,13 @@
 export const en = {
   hero: {
-    role: "Fullstack Developer",
+    role: "Junior Fullstack Developer",
     animatedText: "Building solutions in Java, Spring, React...",
     description: "Enthusiastic about building solid foundations in the Backend with Java and Spring Boot, as well as orchestrating infrastructure with Docker, CI/CD (GitHub Actions), and databases (PostgreSQL/MySQL). On the Frontend, I create modern and performant interfaces using React.",
     downloadCv: "Download Resume (CV)",
   },
   footer: {
     title: "Need a solution or have an idea you want to bring to life? Let's talk!",
-    copyright: "Rafael Menezes de Santana, Fullstack Developer.",
+    copyright: "Rafael Menezes de Santana, Junior Fullstack Developer.",
   },
   showcase: {
     title: "Projects & Experience",
@@ -83,5 +83,11 @@ export const en = {
       subtitle: "See the impact and feedback from those who use this solution daily.",
       badge: "Approved by Clients"
     }
+  },
+  notFound: {
+    title: "Page not found",
+    description: "The page you're looking for might have been moved or doesn't exist. If you need any service or want to chat, reach out through my social links below.",
+    goHome: "Back to Home",
+    contact: "Need help? Get in touch:"
   }
 };

@@ -1,4 +1,4 @@
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 
 function GmailIcon({ size = 24 }) {
   return (
@@ -24,6 +24,11 @@ const SOCIAL_LINKS = [
     name: 'Gmail',
     href: 'https://mail.google.com/mail/?view=cm&fs=1&to=menezesrafaelsantana@gmail.com&su=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%20Rafael,%0A%0AGostaria%20de%20conversar%20sobre...',
     Icon: GmailIcon,
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/rafel.ms/',
+    Icon: Instagram,
   },
 ];
 
