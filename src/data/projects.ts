@@ -42,6 +42,40 @@ type ProjectSource = Omit<Project, keyof ProjectText | "testimonials"> & {
 
 const projects: ProjectSource[] = [
   {
+    slug: "decida",
+    link: "https://decida.social.br/",
+    tags: ["React", "TypeScript", "JavaScript", "Tailwind CSS"],
+    image: "/assets/projects/decida/Decida1.png",
+    status: "live",
+    role: "Frontend",
+    gallery: [
+      "/assets/projects/decida/Decida1.png",
+      "/assets/projects/decida/Decida2.png",
+      "/assets/projects/decida/Decida3.png",
+      "/assets/projects/decida/Decida4.png",
+      "/assets/projects/decida/Decida5.png",
+      "/assets/projects/decida/Decida6.png",
+    ],
+    text: {
+      pt: {
+        title: "Decida",
+        category: "Plataforma Cívica",
+        description: "Site gratuito e sem fins lucrativos que ajuda quem nunca ligou para política a descobrir de qual lado do espectro político suas ideias se aproximam, por meio de 18 afirmações, com tudo embasado em fontes.",
+        period: "2026 - atualmente",
+        problem: "No 1º turno das eleições de 2026, 33,4 milhões de brasileiros (21,08% do eleitorado) não foram votar, a maior taxa de abstenção em um primeiro turno de eleição geral desde 1998. Muita gente olha para a política com um \"tanto faz\" ou \"depois eu vejo\", sem saber por onde começar e afastada por termos difíceis e conteúdo partidário.",
+        solution: "Desenvolvi uma SPA em React + TypeScript, estilizada com Tailwind CSS em uma identidade neo-brutalista com modo escuro e uma abertura animada guiada pelo scroll (\"descer do muro\"). Toda a lógica de pontuação foi escrita em TypeScript: as 18 afirmações são divididas em blocos temáticos (economia, sociedade, comércio e relações internacionais) e as respostas geram uma posição numa escala de -36 a +36, que classifica o usuário em 5 lados (esquerda, centro-esquerda, centro, centro-direita e direita), com o detalhamento por bloco. A plataforma ainda conta com um glossário contextual para palavras difíceis, uma seção de comparação entre os lados com críticas e exemplos práticos, e 99 fontes acadêmicas, institucionais e jornalísticas. Não há backend nem coleta de dados: as respostas ficam apenas no navegador do usuário, e o projeto não tem vínculo com partidos, candidatos ou governos.",
+      },
+      en: {
+        title: "Decida",
+        category: "Civic Platform",
+        description: "Free, non-profit website that helps people who never cared about politics find out which side of the political spectrum their ideas lean towards, through 18 statements, all backed by sources.",
+        period: "2026 - currently",
+        problem: "In the 1st round of Brazil's 2026 elections, 33.4 million Brazilians (21.08% of the electorate) did not vote, the highest abstention rate in a first round of a general election since 1998. Many people look at politics with a \"whatever\" or \"I'll see later\" attitude, not knowing where to start and pushed away by jargon and partisan content.",
+        solution: "I developed a SPA in React + TypeScript, styled with Tailwind CSS in a neo-brutalist identity with dark mode and a scroll-driven animated opening (\"getting off the fence\"). All scoring logic was written in TypeScript: the 18 statements are split into thematic blocks (economy, society, trade and international relations) and the answers produce a position on a -36 to +36 scale, which places the user on one of 5 sides (left, center-left, center, center-right and right), with a per-block breakdown. The platform also features a contextual glossary for difficult words, a comparison section between the sides with criticisms and practical examples, and 99 academic, institutional and journalistic sources. There is no backend or data collection: answers stay only in the user's browser, and the project has no ties to parties, candidates or governments.",
+      },
+    },
+  },
+  {
     slug: "commit-engenharia",
     link: "https://www.commitenergia.com.br/",
     tags: ["React", "Tailwind CSS", "Vite", "SEO"],
